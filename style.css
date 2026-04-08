@@ -1,0 +1,122 @@
+:root {
+    --primary: #6366f1;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --card-bg: #f1f5f9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+header h1 { font-size: 1.8rem; text-align: center; margin-bottom: 4px; }
+#notifStatus { 
+    text-align: center; font-size: 0.8rem; color: var(--primary); 
+    cursor: pointer; font-weight: 600; margin-bottom: 20px;
+}
+
+.input-card {
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+.details-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+#priorityInput, #datetimeInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: white;
+}
+
+#datetimeInput { flex: 2; min-width: 180px; }
+
+.footer-row { display: flex; justify-content: space-between; align-items: center; }
+.toggle-group { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #64748b; }
+
+/* Toggle Switch */
+.switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #cbd5e1; transition: .4s; border-radius: 20px;
+}
+.slider:before {
+    position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px;
+    background-color: white; transition: .4s; border-radius: 50%;
+}
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(20px); }
+
+#addBtn {
+    background: var(--primary); color: white; border: none;
+    padding: 10px 24px; border-radius: 10px; font-weight: 600; cursor: pointer;
+}
+
+/* Filters */
+.filter-nav {
+    display: flex;
+    background: var(--card-bg);
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    flex: 1; border: none; padding: 10px; border-radius: 8px;
+    background: transparent; cursor: pointer; color: #64748b;
+}
+
+.filter-btn.active { background: white; color: var(--primary); font-weight: 600; }
+
+/* Task Items */
+.task-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px; border-radius: 14px; background: #fff;
+    border: 1px solid #f1f5f9; margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.task-item.High { border-left: 5px solid #ef4444; }
+.task-item.Medium { border-left: 5px solid #f59e0b; }
+.task-item.Low { border-left: 5px solid #10b981; }
+
+.task-actions i { margin-left: 15px; cursor: pointer; color: #94a3b8; font-size: 1.2rem; transition: 0.3s; }
+
+/* The colored tick logic */
+.task-item.completed .fa-check { color: var(--success) !important; }
+.task-item.completed span { text-decoration: line-through; color: #cbd5e1; }
+.fa-trash:hover { color: #ef4444; }

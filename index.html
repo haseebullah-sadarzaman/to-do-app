@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>My Tasks</h1>
+            <p id="notifStatus" onclick="requestPermission()">🔔 Enable Alerts</p>
+        </header>
+
+        <div class="input-card">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            
+            <div class="details-row">
+                <select id="priorityInput">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <input type="datetime-local" id="datetimeInput">
+            </div>
+
+            <div class="footer-row">
+                <div class="toggle-group">
+                    <label class="switch">
+                        <input type="checkbox" id="notifCheck">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Notify Me</span>
+                </div>
+                <button id="addBtn">Add Task</button>
+            </div>
+        </div>
+
+        <nav class="filter-nav">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Done</button>
+        </nav>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
