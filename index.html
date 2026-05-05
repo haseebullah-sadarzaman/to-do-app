@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App - Advanced Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <div class="todo-app">
+            <!-- Header -->
+            <div class="app-header">
+                <div class="header-left">
+                    <h1>📋 My Tasks</h1>
+                </div>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button>
+            </div>
+
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="Add a new task..."
+                        autocomplete="off"
+                        class="task-input"
+                    >
+                </div>
+
+                <div class="options-container">
+                    <select id="prioritySelect" class="priority-select">
+                        <option value="low">🟢 Low</option>
+                        <option value="normal" selected>🔵 Normal</option>
+                        <option value="high">🟠 High</option>
+                        <option value="urgent">🔴 Urgent</option>
+                    </select>
+
+                    <input 
+                        type="datetime-local" 
+                        id="reminderInput" 
+                        class="reminder-input"
+                        title="Set reminder"
+                    >
+
+                    <button id="addBtn" class="add-btn">Add Task</button>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="high-priority">⚡ Priority</button>
+                <button class="filter-btn" data-filter="today">📅 Today</button>
+                <button class="filter-btn" data-filter="completed">✓ Done</button>
+            </div>
+
+            <!-- Task List -->
+            <ul id="taskList" class="task-list">
+                <!-- Tasks will be added here dynamically -->
+            </ul>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="task-stats">
+                    <span id="taskCount" class="task-count">0 tasks remaining</span>
+                </div>
+                <button id="clearBtn" class="clear-btn">Clear Completed</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
